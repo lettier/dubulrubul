@@ -1,0 +1,234 @@
+/*
+  David Lettier (C) 2016
+  http://www.lettier.com/
+*/
+
+$leftColor: #2ecc71;
+$rightColor: #3498db;
+$blockBaseColor: #95a5a6;
+$canvasColor: #2c3e50;
+
+$fontFamily: "Roboto Condensed", sans-serif;
+
+$scoreboardHeight: 50px;
+
+$laptopLWidth: 1440px;
+$laptopWidth: 1024px;
+$tabletWidth: 768px;
+
+@mixin laptopL {
+  @media (max-width: #{$laptopLWidth}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (max-width: #{$laptopWidth}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tabletWidth}) {
+    @content;
+  }
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  background: $canvasColor;
+  overflow: hidden;
+  font-family: $fontFamily;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  font-family: $fontFamily;
+}
+
+#overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 10, 10, 0.5);
+  text-align: center;
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
+#dubulRubulLogo {
+  margin-top: $scoreboardHeight;
+  max-width: 70%;
+  height: auto;
+  width: auto;
+}
+
+#title {
+  color: whitesmoke;
+  margin-top: 100px;
+  font-size: 100px;
+}
+
+#startButton {
+  cursor: pointer;
+  color: whitesmoke;
+  border: none;
+  background-color: $rightColor;
+  font-size: 35px;
+  width:  150px;
+  height: 150px;
+  border-radius: 100%;
+  transition: width 0.5s, height 0.5s, background-color 0.5s;
+  @include laptopL {
+    font-size: 30px;
+    width:  120px;
+    height: 120px;
+  }
+  @include laptop {
+    font-size: 25px;
+    width:  100px;
+    height: 100px;
+  }
+  @include tablet {
+    font-size: 20px;
+    width:  80px;
+    height: 80px;
+  }
+}
+
+#startButton:hover {
+  width: 160px;
+  height: 160px;
+  background-color: $leftColor;
+  @include laptopL {
+    width:  130px;
+    height: 130px;
+  }
+  @include laptop {
+    width:  110px;
+    height: 110px;
+  }
+  @include tablet {
+    width:  90px;
+    height: 90px;
+  }
+}
+
+#logoContainer {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+#logo {
+  width: 250px;
+  height: 250px;
+  @include laptopL {
+    width:  200px;
+    height: 200px;
+  }
+  @include laptop {
+    width:  100px;
+    height: 100px;
+  }
+}
+
+.purple {
+  color: #7459FF;
+}
+
+.alizarin {
+  color: #e74c3c;
+}
+
+.sunFlower {
+  color: #f1c40f;
+}
+
+.leftColor {
+  color: $leftColor;
+}
+
+.rightColor {
+  color: $rightColor;
+}
+
+.instructionBlock {
+  display: none;
+  //display: inline-block;
+  width: 400px;
+  height: 400px;
+  background-color: $canvasColor;
+  vertical-align: top;
+  padding: 20px;
+  text-align: left;
+  color: whitesmoke;
+  font-size: 50px;
+  @include laptopL {
+    width: 300px;
+    height: 300px;
+    font-size: 40px;
+  }
+  @include laptop {
+    width: 250px;
+    height: 250px;
+    font-size: 30px;
+  }
+  @include tablet {
+    width: 200px;
+    height: 200px;
+    font-size: 20px;
+  }
+}
+
+.paddleBase {
+  display: none;
+  width: 20px;
+  height: 400px;
+}
+
+.ballBase {
+  display: none;
+  width: 50px;
+  height: 50px;
+}
+
+.blockBase {
+  display: none;
+  color: $blockBaseColor;
+  height: 100px;
+  width: 100px;
+}
+
+.scoreBase {
+  position: absolute;
+  top: 0px;
+  width: 50%;
+  height: $scoreboardHeight;
+  color: whitesmoke;
+  font-size: 50px;
+  line-height: 100%;
+}
+
+.scoreLeft {
+  background-color: $leftColor;
+  left: 0px;
+  padding-left: 5px;
+}
+
+.scoreRight {
+  background-color: $rightColor;
+  right: 0px;
+  text-align: right;
+  padding-right: 5px;
+}
